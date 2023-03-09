@@ -7,7 +7,9 @@
 
 package github
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 // RequestedAction is included in a CheckRunEvent when a user has invoked an action,
 // i.e. when the CheckRunEvent's Action field is "requested_action".
@@ -171,6 +173,19 @@ type DeploymentEvent struct {
 	// The following fields are only populated by Webhook events.
 	Sender       *User         `json:"sender,omitempty"`
 	Installation *Installation `json:"installation,omitempty"`
+}
+
+type DeploymentProtectionRuleEvent struct {
+	Action                *string        `json:"action,omitempty"`
+	Environment           *string        `json:"environment,omitempty"`
+	Event                 *string        `json:"event,omitempty"`
+	DeploymentCallbackURL *string        `json:"deployment_callback_url,omitempty"`
+	Deployment            *Deployment    `json:"deployment"`
+	PullRequests          []*PullRequest `json:"pull_requests"`
+	Repository            *Repository    `json:"repository"`
+	Organization          *Organization  `json:"organization"`
+	Sender                *User          `json:"sender"`
+	Installation          *Installation  `json:"installation"`
 }
 
 // DeploymentStatusEvent represents a deployment status.
