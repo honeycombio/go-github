@@ -11,9 +11,9 @@ import (
 
 // PassFailDeploymentGateRequest represents a deployment branch policy request.
 type PassFailDeploymentGateRequest struct {
-	State           *string
-	Comment         *string
-	EnvironmentName *string
+	State           *string `json:"state,omitempty"`
+	Comment         *string `json:"comment,omitempty"`
+	EnvironmentName *string `json:"envrionment_name,omitempty"`
 }
 
 // PassFailDeploymentGate is a POST request to determine if a deployment gate should pass or fail
