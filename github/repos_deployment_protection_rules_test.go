@@ -14,8 +14,9 @@ func TestRepositoriesService_PassFailDeploymentGate(t *testing.T) {
 		testMethod(t, r, "POST")
 	})
 
+	callbackURL := "repos/o/r/actions/runs/1/deployment_protection_rule"
 	ctx := context.Background()
-	_, err := client.Repositories.PassFailDeploymentGate(ctx, "o", "r", 1, &PassFailDeploymentGateRequest{
+	_, err := client.Repositories.PassFailDeploymentGate(ctx, callbackURL, &PassFailDeploymentGateRequest{
 		State:           String("approved"),
 		Comment:         String("comment"),
 		EnvironmentName: String("prod"),
@@ -26,7 +27,7 @@ func TestRepositoriesService_PassFailDeploymentGate(t *testing.T) {
 
 	const methodName = "PassFailDeploymentGate"
 	testNewRequestAndDoFailure(t, methodName, client, func() (*Response, error) {
-		return client.Repositories.PassFailDeploymentGate(ctx, "o", "r", 1, &PassFailDeploymentGateRequest{
+		return client.Repositories.PassFailDeploymentGate(ctx, callbackURL, &PassFailDeploymentGateRequest{
 			State:           String("approved"),
 			Comment:         String("comment"),
 			EnvironmentName: String("prod"),
