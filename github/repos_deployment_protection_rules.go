@@ -13,7 +13,7 @@ import (
 type PassFailDeploymentGateRequest struct {
 	State           *string `json:"state,omitempty"`
 	Comment         *string `json:"comment,omitempty"`
-	EnvironmentName *string `json:"envrionment_name,omitempty"`
+	EnvironmentName *string `json:"environment_name,omitempty"`
 }
 
 // PassFailDeploymentGate is a POST request to determine if a deployment gate should pass or fail
