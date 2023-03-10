@@ -54,6 +54,7 @@ var (
 		"delete":                         "DeleteEvent",
 		"deploy_key":                     "DeployKeyEvent",
 		"deployment":                     "DeploymentEvent",
+		"deployment_protection_rule":     "DeploymentProtectionRuleEvent",
 		"deployment_status":              "DeploymentStatusEvent",
 		"discussion":                     "DiscussionEvent",
 		"discussion_comment":             "DiscussionCommentEvent",
